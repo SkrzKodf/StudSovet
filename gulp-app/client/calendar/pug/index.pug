@@ -99,18 +99,8 @@ body
                     
                     .calendar-section
                         .section-first 
-                            +eventInfo({
-                                author: "Дарья Шевцова",
-                                paragraphs: [
-                                    "Что такое Хакатон?",
-                                    "Это уникальная возможность показать свои навыки в области программирования, дизайна или бизнес-разработки, а также поработать в команде над интересными проектами.",
-                                    "Сроки проведения: 25-29 марта",
-                                    "Регистрация: https://hack.spbgasu.ru/ Заявки принимаются до 20 марта",
-                                    "Не упусти шанс стать частью этого увлекательного мероприятия!"
-                                ],
-                                author: "asdads",
-                                date: "6 марта в 11:51"
-                            })
+                            for eventData  in allEvents
+                                +eventInfo(eventData)
 
                         .section-sec
                             //- .calendar
@@ -196,5 +186,5 @@ body
                     | 2024
 
 
-//- ???
-script(src='main/script.js')
+
+        script(src='main/script.js')

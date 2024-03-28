@@ -8,14 +8,13 @@ function navMenuClose() {
   navMenu.style.right = '-100%';
 }
 
+let eventDates = {};
 
-const eventDates = {
-  '2024-03-25': true,
-  '2024-03-26': true,
-  '2024-03-27': true,
-  '2024-03-28': true,
-  '2024-03-29': true,
-};
+let dates = Array.from(document.querySelectorAll('.info'));
+dates.forEach(function (e) {
+  e.style.display = 'none';
+  eventDates[e.id] = true;
+});
 
 const isLeapYear = (year) => {
   return (
@@ -155,8 +154,27 @@ const updateEventInfo = (data) => {
 };
 calendarDays.forEach((day) => {
   day.addEventListener('click', () => {
-    let selectedDay = day.innerText;
+    let thisMonth = Number(currentMonth.value) + 1;
+    if ((thisMonth < 10) & (day.innerText < 10)) {
+      var selectedDay =
+        currentYear.value + '-0' + thisMonth + '-0' + day.innerText;
+    } else if (thisMonth < 10) {
+      var selectedDay =
+        currentYear.value + '-0' + thisMonth + '-' + day.innerText;
+    } else if (day.innerText < 10) {
+      var selectedDay =
+        currentYear.value + '-' + thisMonth + '-0' + day.innerText;
+    } else {
+      var selectedDay =
+        currentYear.value + '-' + thisMonth + '-' + day.innerText;
+    }
 
-    updateEventInfo({});
+    dates.forEach(function (e) {
+      if (e.id == selectedDay) {
+        e.style.display = 'flex';
+      } else {
+        e.style.display = 'none';
+      }
+    });
   });
 });
