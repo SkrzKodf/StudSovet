@@ -20,7 +20,7 @@ npm run build
 
 ```
 PORT=3000
-HOST="http://217.25.92.196:3000"
+HOST="http://localhost:3000"
 DB_NAME="store.db"
 SECRET_KEY="admin"  (ключ для входа в панель администрации)
 ```
