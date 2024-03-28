@@ -22,7 +22,7 @@ npm run build
 PORT=3000
 HOST="http://localhost:3000"
 DB_NAME="store.db"
-SECRET_KEY="dfhyw"  (абсолютно любой ключь для входа в панель администрации)
+SECRET_KEY="admin"  (абсолютно любой ключ для входа в панель администрации)
 ```
 
 5. Запустить приложение в Prod
