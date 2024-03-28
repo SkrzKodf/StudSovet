@@ -12,8 +12,10 @@ let eventDates = {};
 
 let dates = Array.from(document.querySelectorAll('.info'));
 dates.forEach(function (e) {
-  e.style.display = 'none';
-  eventDates[e.id] = true;
+  if (e.id) {
+    e.style.display = 'none';
+    eventDates[e.id] = true;
+  }
 });
 
 const isLeapYear = (year) => {
